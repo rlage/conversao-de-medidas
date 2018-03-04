@@ -1,18 +1,22 @@
-def calculate(measureValue, measureUnit):
+def objectTime(measureValue):
   measureValueInSeconds = measureValue / 1000
   measureValueInMinutes = measureValueInSeconds / 60
   measureValueInHours = measureValueInMinutes / 60
-
-  if (measureValueInSeconds >= 1):
-    measureUnit = "s"
-    measureValue = measureValueInSeconds
-
-  if (measureValueInMinutes >= 1):
-    measureUnit = "m"
-    measureValue = measureValueInMinutes
-
-
-  if (measureValueInHours >= 1):
-    measureUnit = "h"
-    measureValue = measureValueInHours
-  return (measureValue, measureUnit)
+  return {
+    'hours': {
+      'value': measureValueInHours,
+      'unit': 'h'
+    },
+    'minutes': {
+      'value': measureValueInMinutes,
+      'unit': 'm'
+    },
+    'seconds': {
+      'value': measureValueInSeconds,
+      'unit': 's'
+    },
+    'miliseconds': {
+      'value': measureValue,
+      'unit': 'ms'
+    }
+  }
