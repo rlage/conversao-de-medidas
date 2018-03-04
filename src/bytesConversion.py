@@ -1,13 +1,17 @@
-def calculate(measureValue, measureUnit):
+def objectBytes(measureValue):
   measureValueInKiloBytes = measureValue / 1000
   measureValueInMegaBytes = measureValueInKiloBytes / 1000
-
-  if (measureValueInKiloBytes >= 1):
-    measureUnit = "Kb"
-    measureValue = measureValueInKiloBytes
-
-  if (measureValueInMegaBytes >= 1):
-    measureUnit = "Mb"
-    measureValue = measureValueInMegaBytes
-
-  return (measureValue, measureUnit)
+  return {
+    'megabytes': {
+      'value': measureValueInMegaBytes,
+      'unit': 'Mb'
+    },
+    'kilobytes': {
+      'value': measureValueInKiloBytes,
+      'unit': 'kB'
+    },
+    'bytes': {
+      'value': measureValue,
+      'unit': 'B'
+    }
+  }
